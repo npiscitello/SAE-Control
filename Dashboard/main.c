@@ -16,13 +16,9 @@ int main(void) {
   DDRB = _BV(DDB3);
   TCCR2A = (uint8_t)((_BV(WGM20) | _BV(WGM21) | _BV(COM2A1)) & ~_BV(COM2A0));
   TCCR2B = (uint8_t)((~_BV(WGM22) & ~_BV(FOC2A) & ~_BV(FOC2B) & ~_BV(CS22) & ~_BV(CS20)) | _BV(CS21));
-  // not quite half because 0xFF doesn't quite output 5V due to voltage drop in the transistor
-  OCR2A = 0x76;
+  OCR2A = 0x80;
 
   while(1) {
-    //OCR0A = 0xFF;
-    //OCR0B = 0x00;
-    ///*
     for( int i = 0; i <= 255; i++ ) {
       OCR0A = i; OCR0B = i;
       _delay_us(1000);
@@ -32,6 +28,5 @@ int main(void) {
       OCR0A = i; OCR0B = i;
       _delay_us(1000);
     }
-    // */
   }
 }
