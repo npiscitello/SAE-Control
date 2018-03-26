@@ -7,3 +7,4 @@ I'm using the Arduino IDE CLI on arch - the compile command looks like this:
 * Make sure to run `arduino --install-boards arduino:avr` first!
 * On Arch, make sure your user is in the `uucp` and `lock` groups per
   [the wiki](https://wiki.archlinux.org/index.php/Arduino#Accessing_serial)
+* to set the baud rate of the port, just run `stty -F /path/to/device <baud rate>`. I like 115200.
