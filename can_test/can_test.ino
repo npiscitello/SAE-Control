@@ -44,7 +44,7 @@ uint16_t receive() {
   Serial.read();
   Serial.read();
 
-  // data
+  // data (MUST read 8 bytes)
   uint16_t retval = 0x0000;
   retval |= (Serial.read() << 8);
   retval |= (Serial.read() << 0);
@@ -71,7 +71,7 @@ void send( uint32_t id, uint16_t data ) {
   Serial.write((uint8_t)0x00);
   Serial.write((uint8_t)0x00);
 
-  // data
+  // data (MUST write 8 bytes)
   Serial.write((uint8_t)(data >> 8));
   Serial.write((uint8_t)(data >> 0));
   Serial.write((uint8_t)0x00);
