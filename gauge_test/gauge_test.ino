@@ -47,11 +47,11 @@ void setup() {
 void loop() {
   int i = 1;
   for( i; i < 90; i++ ) {
-    write_gauges(LOGO1, i, Q1);
+    write_gauges(LOGO2, i, Q1);
     delay(10);
   }
   for( i; i > 0; i-- ) {
-    write_gauges(LOGO1, i, Q1);
+    write_gauges(LOGO2, i, Q1);
     delay(10);
   }
 }
@@ -84,6 +84,5 @@ void write_gauges(OPCODE gauge, uint8_t angle, QUADRANT quadrant) {
   Serial.print(", Quadrant: "); Serial.print(quadrant, BIN);
   Serial.print(", Assembled packet: "); Serial.println(data, BIN);
 #endif
-
   return;
 }
