@@ -1,6 +1,6 @@
 #include <Servo.h>
 
-#define SERVO_PIN 6
+#define SERVO_PIN 3
 Servo servo;
 
 void setup() {
@@ -10,6 +10,7 @@ void setup() {
 void loop() {
 
   /*
+  servo.attach(SERVO_PIN);
   for( int pos = 5; pos < 170; pos++ ) {
     servo.write(pos);
     delay(10);
@@ -32,6 +33,6 @@ void loop() {
   servo.write(160);
   delay(5000);
   servo.detach();
-  digitalWrite(SERVO_PIN, LOW);
+  //digitalWrite(SERVO_PIN, LOW);
   delay(10000);
 }

@@ -17,10 +17,15 @@ dashboard.
 * Communication is one way - the rear module only needs to send data to the front module.
 * Due to the way the CAN boards work, we must send 8 bytes in every transmission. The byte order
   will be laid out as follows (byte 0 being the first sent, byte 7 being the last):
-  * 0:0 - two zero bytes
+  * 0:0 - zero byte
   * 1:2 - Engine speed (RPM, 16 bit unsigned integer)
   * 3:3 - Wheel speed (MPH, 8 bit unsigned integer)
   * 4:4 - CVT temperature (deg F, 8 bit unsigned integer)
   * 5:5 - Oil temperature (deg F, 8 bit unsigned integer)
   * 6:7 - two zero bytes
-  * Information in the rear module code supercedes format specifications here!
+  * Information in the code supercedes format specifications here!
+  * The first zero byte is important, the last two are just padding
+* There are currently only 2 modules, but in case there are more or more communication is required,
+  addressing is as follows:
+  * 0x00000000: front module
+  * 0x00000001: rear module
